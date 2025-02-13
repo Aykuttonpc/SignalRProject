@@ -14,7 +14,7 @@ namespace SignalR.DtoLayer.FeatureDto
         public string Title2 { get; set; }
         public string Descripton2 { get; set; }
         public string Title3 { get; set; }
-        public string Descripton3 { get; }
+        public string Descripton3 { get; set; }
 
     }
 }

@@ -1,4 +1,6 @@
 ﻿using SignalR.BusinessLayer.Abstract;
+using SignalR.DataAccessLayer.Abstract;
+using SignalR.EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,39 +9,39 @@ using System.Threading.Tasks;
 
 namespace SignalR.BusinessLayer.Concrete
 {
-    internal class SocialMediaManager : ISocialMediaService
+    public class SocialMediaManager : ISocialMediaService
     {
-        private readonly ISocialMediaService _SocialMediaDal;
+        private readonly ISocialMediaDal _socialMediaDal;
 
-        public SocialMediaManager(ISocialMediaService socialMediaDal)
+        public SocialMediaManager(ISocialMediaDal socialMediaDal)
         {
-            _SocialMediaDal = socialMediaDal;
+            _socialMediaDal = socialMediaDal;
         }
 
-        public void TAdd(ISocialMediaService entity)
+        public void TAdd(SocialMedia entity)
         {
-            _SocialMediaDal.TAdd(entity);
+            _socialMediaDal.Add(entity);
         }
 
-        public void TDelete(ISocialMediaService entity)
+        public void TDelete(SocialMedia entity)
         {
-            _SocialMediaDal?.TDelete(entity);   
+            _socialMediaDal.Delete(entity);   
         }
 
-        public ISocialMediaService TGetById(int id)
+        public SocialMedia TGetById(int id)
         {
-            return _SocialMediaDal.TGetById(id);
+            return _socialMediaDal.GetById(id);
         }
 
-        public List<ISocialMediaService> TGetListAll()
+        public List<SocialMedia> TGetListAll()
         {
-            return _SocialMediaDal.TGetListAll();
+            return _socialMediaDal.GetListAll();
 
         }
 
-        public void TUpdate(ISocialMediaService entity)
+        public void TUpdate(SocialMedia entity)
         {
-            _SocialMediaDal.TUpdate(entity);
+            _socialMediaDal.Update(entity);
         }
     }
 }

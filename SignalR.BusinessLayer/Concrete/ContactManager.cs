@@ -1,4 +1,5 @@
 ﻿using SignalR.BusinessLayer.Abstract;
+using SignalR.DataAccessLayer.Abstract;
 using SignalR.EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,38 +9,38 @@ using System.Threading.Tasks;
 
 namespace SignalR.BusinessLayer.Concrete
 {
-    internal class ContactManager : IContactService
+    public class ContactManager : IContactService
     {
-        private readonly IContactService _contactDal;
+        private readonly IContactDal _contactDal;
 
-        public ContactManager(IContactService contactDal)
+        public ContactManager(IContactDal contactDal)
         {
             _contactDal = contactDal;
         }
 
         public void TAdd(Contact entity)
         {
-            _contactDal.TAdd(entity);
+            _contactDal.Add(entity);
         }
 
         public void TDelete(Contact entity)
         {
-           _contactDal.TDelete(entity);
+           _contactDal.Delete(entity);
         }
 
         public Contact TGetById(int id)
         {
-            return _contactDal.TGetById(id);
+            return _contactDal.GetById(id);
         }
 
         public List<Contact> TGetListAll()
         {
-            return _contactDal.TGetListAll();
+            return _contactDal.GetListAll();
         }
 
         public void TUpdate(Contact entity)
         {
-            _contactDal.TUpdate(entity);
+            _contactDal.Update(entity);
         }
     }
 }

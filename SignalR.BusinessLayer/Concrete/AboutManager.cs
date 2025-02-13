@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SignalR.BusinessLayer.Concrete
 {
-    public class AboutManager : IAboıutService
+    public class AboutManager : IAboutService
     {
         private readonly IAboutDal _aboutDal;
 

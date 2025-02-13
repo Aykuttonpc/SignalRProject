@@ -1,4 +1,5 @@
 ﻿using SignalR.BusinessLayer.Abstract;
+using SignalR.DataAccessLayer.Abstract;
 using SignalR.EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,36 +11,36 @@ namespace SignalR.BusinessLayer.Concrete
 {
     public class TestimonialManager : ITestimonialService
     {
-        private readonly ITestimonialService _testimonialDal;
+        private readonly ITestimonialDal _testimonialDal;
 
-        public TestimonialManager(ITestimonialService testimonialDal)
+        public TestimonialManager(ITestimonialDal testimonialDal)
         {
             _testimonialDal = testimonialDal;
         }
 
         public void TAdd(Testimonial entity)
         {
-            _testimonialDal.TAdd(entity);   
+            _testimonialDal.Add(entity);   
         }
 
         public void TDelete(Testimonial entity)
         {
-            _testimonialDal.TDelete(entity);
+            _testimonialDal.Delete(entity);
         }
 
         public Testimonial TGetById(int id)
         {
-            return _testimonialDal.TGetById(id);
+            return _testimonialDal.GetById(id);
         }
 
         public List<Testimonial> TGetListAll()
         {
-            return _testimonialDal.TGetListAll();
+            return _testimonialDal.GetListAll();
         }
 
         public void TUpdate(Testimonial entity)
         {
-            _testimonialDal.TUpdate(entity);    
+            _testimonialDal.Update(entity);    
         }
     }
 }

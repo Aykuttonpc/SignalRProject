@@ -1,4 +1,5 @@
 ﻿using SignalR.BusinessLayer.Abstract;
+using SignalR.DataAccessLayer.Abstract;
 using SignalR.EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,36 +11,36 @@ namespace SignalR.BusinessLayer.Concrete
 {
     public class FeatureManager : IFeatureService
     {
-        private readonly IFeatureService _featureDal;
+        private readonly IFeatureDal _featureDal;
 
-        public FeatureManager(IFeatureService featureDal)
+        public FeatureManager(IFeatureDal featureDal)
         {
             _featureDal = featureDal;
         }
 
         public void TAdd(Feature entity)
         {
-            _featureDal.TAdd(entity);
+            _featureDal.Add(entity);
         }
 
         public void TDelete(Feature entity)
         {
-            _featureDal.TDelete(entity);
+            _featureDal.Delete(entity);
         }
 
         public Feature TGetById(int id)
         {
-           return  _featureDal.TGetById(id);
+           return  _featureDal.GetById(id);
         }
 
         public List<Feature> TGetListAll()
         {
-            return _featureDal.TGetListAll();
+            return _featureDal.GetListAll();
         }
 
         public void TUpdate(Feature entity)
         {
-            _featureDal.TUpdate(entity);
+            _featureDal.Update(entity);
         }
     }
 }

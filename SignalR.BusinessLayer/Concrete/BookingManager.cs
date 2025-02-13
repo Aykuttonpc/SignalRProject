@@ -1,45 +1,47 @@
 ﻿using SignalR.BusinessLayer.Abstract;
+using SignalR.DataAccessLayer.Abstract;
 using SignalR.EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SignalR.BusinessLayer.Concrete
 {
-    internal class BookingService : IBookingService
+    public class BookingManager : IBookingService
     {
-        private readonly IBookingService _bookingDal;
+        private readonly IBookingDal _bookingDal;
 
-        public BookingService(IBookingService bookingDal)
+        public BookingManager(IBookingDal bookingDal)
         {
             _bookingDal = bookingDal;
         }
 
         public void TAdd(Booking entity)
         {
-            _bookingDal.TAdd(entity);
+            _bookingDal.Add(entity);
         }
 
         public void TDelete(Booking entity)
         {
-            _bookingDal.TDelete(entity);
+            _bookingDal.Delete(entity);
         }
 
         public Booking TGetById(int id)
         {
-            return _bookingDal.TGetById(id);
+            return _bookingDal.GetById(id);
         }
 
         public List<Booking> TGetListAll()
         {
-           return _bookingDal.TGetListAll();
+           return _bookingDal.GetListAll();
         }
 
         public void TUpdate(Booking entity)
         {
-            _bookingDal.TUpdate(entity);
+            _bookingDal.Update(entity);
         }
     }
 }
