@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SignalR.DtoLayer.ProductDto
+﻿namespace SignalRWebUI.Dtos.ProductDtos
 {
-    public class UpdateProductDto
+    public class GetProductDto
     {
         public int ProductId { get; set; }
         public string ProductName { get; set; }
