@@ -49,7 +49,7 @@ namespace SignalR.DataAccessLayer.EntityFramework
             return context.Products.Where(x => x.Price == context.Products.Max(y => y.Price)).Select(z => z.ProductName).FirstOrDefault();
         }
 
-        public string ProductNameByMixPrice()
+        public string ProductNameByMinPrice()
         {
             using var context = new SignalRContext();
             return context.Products.Where(x => x.Price == context.Products.Min(y => y.Price)).Select(z => z.ProductName).FirstOrDefault();

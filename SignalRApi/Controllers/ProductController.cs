@@ -121,10 +121,10 @@ namespace SignalRApi.Controllers
             return Ok(_productService.TProductNameByMaxPrice());
         }
 
-        [HttpGet("ProductNameByMixPrice")]
+        [HttpGet("ProductNameByMinPrice")]
         public IActionResult ProductNameByMixPrice()
         {
-            return Ok(_productService.TProductNameByMixPrice());
+            return Ok(_productService.TProductNameByMinPrice());
         }
 
         [HttpGet("ProductAvgPriceByHamburger")]

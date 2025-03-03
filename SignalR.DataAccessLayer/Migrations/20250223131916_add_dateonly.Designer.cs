@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SignalR.DataAccessLayer.Concrete;
 
@@ -11,9 +12,11 @@ using SignalR.DataAccessLayer.Concrete;
 namespace SignalR.DataAccessLayer.Migrations
 {
     [DbContext(typeof(SignalRContext))]
-    partial class SignalRContextModelSnapshot : ModelSnapshot
+    [Migration("20250223131916_add_dateonly")]
+    partial class add_dateonly
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -193,26 +196,6 @@ namespace SignalR.DataAccessLayer.Migrations
                     b.ToTable("Features");
                 });
 
-            modelBuilder.Entity("SignalR.EntityLayer.Entities.MenuTable", b =>
-                {
-                    b.Property<int>("MenuTableId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MenuTableId"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.HasKey("MenuTableId");
-
-                    b.ToTable("MenuTables");
-                });
-
             modelBuilder.Entity("SignalR.EntityLayer.Entities.MoneyCase", b =>
                 {
                     b.Property<int>("MoneyCaseId")
@@ -237,12 +220,15 @@ namespace SignalR.DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"));
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateOnly>("OrderDate")
-                        .HasColumnType("Date");
+                    b.Property<DateOnly?>("OrderDate")
+                        .HasColumnType("date");
 
                     b.Property<string>("TableNumber")
                         .IsRequired()
