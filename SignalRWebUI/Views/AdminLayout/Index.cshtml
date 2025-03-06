@@ -1,6 +1,7 @@
 ﻿
 @{
     Layout = null;
+	/*UILayout */
 }
 
 <!DOCTYPE html>
@@ -12,7 +13,10 @@
 		@await Component.InvokeAsync("_LayoutSideBarComponentPartial")
 	
 		<div class="main-panel">
+
             @RenderBody()
+	
+		
 			@await Component.InvokeAsync("_LayoıtFooterComponentPartial")
 
 		</div>
