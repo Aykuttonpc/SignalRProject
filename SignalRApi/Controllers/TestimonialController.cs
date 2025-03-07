@@ -34,7 +34,7 @@ namespace SignalRApi.Controllers
                 Name = createTestimonialDto.Name,
                 Title = createTestimonialDto.Title,
                 Comment = createTestimonialDto.Comment,
-                ImageUrl = createTestimonialDto.ImagUrl,
+                ImageUrl = createTestimonialDto.ImageUrl,
                 Status = createTestimonialDto.Status
 
             });
@@ -62,7 +62,7 @@ namespace SignalRApi.Controllers
                 Name = updateTestimonialDto.Name,
                 Title = updateTestimonialDto.Title,
                 Comment = updateTestimonialDto.Comment,
-                ImageUrl = updateTestimonialDto.ImagUrl,
+                ImageUrl = updateTestimonialDto.ImageUrl,
                 Status = updateTestimonialDto.Status
 
             });
