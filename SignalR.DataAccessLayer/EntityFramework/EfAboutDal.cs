@@ -15,5 +15,27 @@ namespace SignalR.DataAccessLayer.EntityFramework
         public EfAboutDal(SignalRContext context) : base(context)
         {
         }
+
+        public void Add(Basket entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Basket entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Basket> GetBasketByTableNumber(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Basket entity)
+        {
+            throw new NotImplementedException();
+        }
+
+      
     }
 }

@@ -1,4 +1,5 @@
-﻿using SignalR.BusinessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using SignalR.BusinessLayer.Abstract;
 using SignalR.DataAccessLayer.Abstract;
 using SignalR.EntityLayer.Entities;
 using System;
@@ -20,27 +21,29 @@ namespace SignalR.BusinessLayer.Concrete
 
         public void TAdd(About entity)
         {
-           _aboutDal.Add(entity);
+            throw new NotImplementedException();
         }
 
         public void TDelete(About entity)
         {
-           _aboutDal.Delete(entity);
+            throw new NotImplementedException();
         }
 
         public About TGetById(int id)
         {
-            return _aboutDal.GetById(id);
+            throw new NotImplementedException();
         }
 
         public List<About> TGetListAll()
         {
-            return _aboutDal.GetListAll();
+          var abouts = _aboutDal.GetListAll();
+            return abouts;
+
         }
 
         public void TUpdate(About entity)
         {
-          _aboutDal.Update(entity);
+            throw new NotImplementedException();
         }
     }
 }

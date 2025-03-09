@@ -45,7 +45,7 @@ namespace SignalRApi.Controllers
             return Ok("Rezervasyon Başarılı Bir Şekilde Silindi");
         }
         [HttpPut]   
-        public IActionResult actionResult(UpdateBookingDto updateBookingDto)
+        public IActionResult UpdateBooking(UpdateBookingDto updateBookingDto)
         {
             Booking booking = new Booking()
             {

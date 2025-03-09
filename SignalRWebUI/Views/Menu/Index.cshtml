@@ -1,6 +1,7 @@
 ﻿@model List<ResultProductDto>
 @{
     Layout = null;
+    
 }
 
 <!DOCTYPE html>
@@ -53,7 +54,7 @@
                                         <h6>
                                             @item.Price ₺
                                         </h6>
-                                            <a href="#" onclick="showproductid(@item.ProductId)">
+                                            <a href="#" onclick="showproductid(@item.ProductId, '@item.ProductName', @item.Price)">
                                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                                             <g>
                                             <g>
@@ -134,21 +135,29 @@
 
   
     <!-- End Google Map -->
-     <script>
-        function showproductid(value){
-            var id = value;
+    <script>
+        function showproductid(id, name, price) {
+            var itemName = name;
             $.ajax({
-                type :'post',
-                data :{item:id},
-                contentType:'json',
-                success :function(){
-                    swal("Seçilen Ürün İd : "+   id, "Seçiminizi yaptınız");
-
+                type: 'POST',
+                url: "/Menu/AddBasket/" + id,
+                data: JSON.stringify({
+                    productId: id,
+                    price: price,
+                    count: 1,
+                    totalPrice: price,
+                    menuTableId: id,
+                }),
+                contentType: 'application/json',
+                success: function () {
+                    swal("Seçtiğiniz Ürün Sepete Eklendi!", "success");
+                },
+                error: function () {
+                    swal("Ürün Sepete Eklenemedi!", "error");
                 }
-             
-              } )
-        }
-     </script>
+            });
+        };
+    </script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
